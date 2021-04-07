@@ -1,5 +1,9 @@
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    HERO.vy = -100
+})
+let HERO: Sprite = null
 scene.setBackgroundColor(9)
-let mySprite = sprites.create(img`
+HERO = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . f f f f f f . . . . 
     . . . . f f e e e e f 2 f . . . 
@@ -17,5 +21,9 @@ let mySprite = sprites.create(img`
     . . . . f f f f f f f f f f . . 
     . . . . . f f . . . f f f . . . 
     `, SpriteKind.Player)
-controller.moveSprite(mySprite)
+controller.moveSprite(HERO, 100, 0)
 tiles.setTilemap(tilemap`level1`)
+scene.cameraFollowSprite(HERO)
+// BLOCCO GRAVITA  
+//  - sprite 
+HERO.ay = 100
